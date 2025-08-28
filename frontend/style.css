@@ -1,0 +1,103 @@
+/* General layout */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f1f5f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Header */
+header {
+  text-align: center;
+  background: #4f6d7a;
+  color: white;
+  padding: 1.5em 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 0.2em 0 0;
+  font-size: 1.1rem;
+}
+
+/* Centered card */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.form-card {
+  background: white;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-card h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #4f6d7a;
+}
+
+/* Form elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+input, select, button {
+  padding: 0.6em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+input:focus, select:focus {
+  border-color: #4f6d7a;
+  outline: none;
+}
+
+/* Button */
+button {
+  background: #4f6d7a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #3c5560;
+}
+
+/* Message */
+.message {
+  margin-top: 1em;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #f1f5f9;
+  padding: 1em 0;
+  font-size: 0.9rem;
+  color: #555;
+}

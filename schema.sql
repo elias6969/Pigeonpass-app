@@ -1,0 +1,13 @@
+CREATE TABLE Visitors (
+    VisitorID INT IDENTITY(1,1) PRIMARY KEY,
+    FullName NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE Visits (
+    VisitID INT IDENTITY(1,1) PRIMARY KEY,
+    VisitorID INT NOT NULL,
+    Purpose NVARCHAR(50),
+    VisitTime DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (VisitorID) REFERENCES Visitors(VisitorID)
+);

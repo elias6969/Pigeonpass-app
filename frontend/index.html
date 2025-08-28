@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>PigeonPass Visitor Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>🕊️ PigeonPass</h1>
+    <p>Visitor Registration System</p>
+  </header>
+
+  <main>
+    <section class="form-card">
+      <h2>Check In</h2>
+      <form id="visitorForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+
+        <label for="purpose">Purpose</label>
+        <select id="purpose" name="purpose">
+          <option value="Meeting">Meeting</option>
+          <option value="Delivery">Delivery</option>
+          <option value="Guest">Guest</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <button type="submit">Check In</button>
+      </form>
+      <div class="message" id="message"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>PigeonPass © 2025</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('visitorForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        purpose: form.purpose.value
+      };
+
+      try {
+        const res = await fetch('/api/RegisterVisitor', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.text();
+        document.getElementById('message').innerText = result;
+      } catch (err) {
+        document.getElementById('message').innerText = 'Error submitting form.';
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+
+</html>
